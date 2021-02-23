@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        通过setter方式注入：
+        创建IOC容器的过程，可以执行下方操作
+        1.解析xml文件，根据bean节点，寻找到class属性（全类名）
+        2.获得Class类类型：Class clazz = Class.forName("全类名");
+        3.通过调用无参构造方法创建实例：Person person = (Person)clazz.newInstance();
+        4.调用setXxx()进行赋值
+    -->
+    <bean class="com.igeek.ch03.Person" id="p1">
+        <property name="name" value="张三"/>
+        <property name="age" value="15"/>
+    </bean>
+
+    <!--
+        通过构造器方式注入：
+        使用与指定的类中的构造器，来创建实例
+    -->
+    <bean class="com.igeek.ch03.Person" id="p2">
+        <constructor-arg index="0" type="java.lang.String" value="李四"></constructor-arg>
+        <constructor-arg index="1" value="12"></constructor-arg>
+    </bean>
+
+</beans>

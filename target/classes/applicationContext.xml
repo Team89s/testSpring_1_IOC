@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        bean 配置实例
+        1.id属性：在配置文件中的唯一标识，可以通过id获得指向的对象实例
+        2.class属性：指向当前bean的全类名
+
+        property 给实例赋值属性
+        1.name属性：指向实例中的setXxx()的xxx
+        2.value属性：值
+        3.ref属性：引用其他对象的值
+    -->
+    <bean id="user1" class="com.igeek.ch01.User">
+        <property name="name" value="李四1"></property>
+    </bean>
+
+    <bean id="user2" class="com.igeek.ch01.User">
+        <property name="name" value="李四2"></property>
+    </bean>
+
+</beans>
