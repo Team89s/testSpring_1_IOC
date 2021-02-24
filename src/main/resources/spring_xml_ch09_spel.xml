@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        SpEL表达式  #{}
+        1.字面量  #{字面量} ， 若是字符串则可以#{'字面量'}或#{"字面量"}
+        2.使用bean的属性   #{bean的id.属性}
+        3.使用bean的方法   #{bean的id.方法()}
+        4.使用静态的属性或方法  T()
+        5.允许使用三目运算符  #{表达式?值1:值2}
+    -->
+    <bean class="com.igeek.ch09.spel.Person" id="p"
+          p:name="#{'成斌'}" p:title="#{car.price>=300000.0?'金领':'白领'}" p:city="#{addr.city.toUpperCase()}"></bean>
+
+    <bean class="com.igeek.ch09.spel.Car" id="car"
+          p:label="玛莎" p:price="600000.0" p:cl="#{2*T(java.lang.Math).PI*120}"></bean>
+
+    <bean class="com.igeek.ch09.spel.Address" id="addr"
+          p:city="wuxi" p:street="新吴区"></bean>
+</beans>

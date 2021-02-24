@@ -72,7 +72,12 @@
         <ref bean="car2"></ref>
     </util:list>
 
-    <!-- 使用p命名空间，首先先引入p的命名空间 -->
+    <!--
+        使用p命名空间
+        1.首先先引入p的命名空间
+        2.若是字面量值 p:属性名 = "值"
+        3.若是引用数据类型  p:属性名-ref = "具体的bean"
+    -->
     <bean id="p3" class="com.igeek.ch04.list.Person" p:name="王五" p:cars-ref="carsList"></bean>
 
 </beans>

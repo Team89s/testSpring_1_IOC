@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        前置依赖  depends-on="addr2"
+        1.关键字 depends-on
+        2.前置依赖指定的bean，依赖的bean（addr2）会先进行实例化，再实例化本bean（p）；
+        但是并不会直接引用依赖的bean（addr2）的值，必须通过ref引用其值
+    -->
+    <bean class="com.igeek.ch06.relation.depend.Person" id="p"
+          p:name="张三" depends-on="addr2 car"
+          p:address-ref="addr2" p:car-ref="car"></bean>
+
+    <!--
+        bean之间的继承关系： parent="addr1"
+        1.关键字parent，通过此关键字表示父子级的bean关系
+        2.继承父bean的属性，但是有些属性不可以继承autowire、abstract
+        3.继承父bean的属性，而且可以修改父bean的属性值
+        4.一旦bean中有abstract="true"这个属性，则当前bean不可以再被实例化，只能当作模板进行使用
+        5.一旦bean中有abstract="true"这个属性，则此bean也可以省略class属性，仅仅作为模板，共享属性值
+    -->
+    <bean id="addr1" class="com.igeek.ch06.relation.extend.Address"
+          p:city="江苏" p:street="新吴区" abstract="true"></bean>
+
+    <!--<bean id="addr1"
+          p:city="江苏" p:street="新吴区" abstract="true"></bean>-->
+
+    <bean class="com.igeek.ch06.relation.extend.Address" id="addr2"
+          p:street="滨湖区" parent="addr1"></bean>
+
+
+    <bean class="com.igeek.ch06.relation.depend.Car" id="car">
+        <property name="label" value="奥迪"></property>
+        <property name="price" value="200000.0"></property>
+        <property name="color" value="白色"></property>
+    </bean>
+
+</beans>
