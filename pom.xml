@@ -39,6 +39,20 @@
       <version>5.3.4</version>
     </dependency>
 
+    <!-- 引入spring的AOP依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>5.3.4</version>
+    </dependency>
+
+    <!-- 引入aspectj依赖 -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.9.4</version>
+    </dependency>
+
     <!--mysql驱动包 -->
     <dependency>
       <groupId>mysql</groupId>

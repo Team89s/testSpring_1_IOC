@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util
+       https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--
+        开启扫描指定的包下的注解
+        通过指定base-package来确定扫描的包
+    -->
+    <context:component-scan base-package="com.igeek.ch14.generic"></context:component-scan>
+
+    <bean id="emp" class="com.igeek.ch14.generic.entity.Employee"
+          p:name="张三" p:salary="5000.0"></bean>
+</beans>

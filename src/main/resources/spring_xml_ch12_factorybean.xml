@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        方式一：通过反射，填写class全类名
+
+        配置普通bean
+     -->
+    <bean class="com.igeek.ch12.factorybean.Car" id="car1"
+          p:label="mini" p:color="白红色"></bean>
+
+
+    <!--
+        方式二：配置工厂bean
+        通过id获得实例，并不是工厂bean，而是工厂bean中的getObject()返回的实例
+    -->
+    <bean class="com.igeek.ch12.factorybean.MyFactoryBean" id="car2"></bean>
+
+</beans>

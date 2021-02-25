@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/util
+       https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--
+        开启扫描指定的包下的注解
+        1.通过指定base-package来确定扫描的包
+        2.通过resource-pattern属性指定特定的扫描包
+    -->
+    <context:component-scan base-package="com.igeek.ch13.annotation"></context:component-scan>
+
+    <!--<context:component-scan base-package="com.igeek.ch13.annotation"
+        resource-pattern="dao/impl/*"></context:component-scan>-->
+
+    <!--
+        context:include-filter 指定包含过滤的资源
+        1.annotation类型，expression表达式是注解全类名
+        2.必须与use-default-filters="false"一起使用
+        3.assignable类型，expression表达式是实例的全类名
+    -->
+    <context:component-scan base-package="com.igeek.ch13.annotation" use-default-filters="false">
+        <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>-->
+        <!--<context:include-filter type="assignable" expression="com.igeek.ch13.annotation.dao.impl.UserDaoImpl"/>-->
+    </context:component-scan>
+
+    <!--
+        context:exclude-filter 指定排除的特定资源
+        1.annotation类型，expression表达式是注解全类名
+        2.assignable类型，expression表达式是实例的全类名
+    -->
+    <context:component-scan base-package="com.igeek.ch13.annotation">
+        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>-->
+        <!--<context:exclude-filter type="assignable" expression="com.igeek.ch13.annotation.dao.impl.UserDaoImpl"/>-->
+    </context:component-scan>
+
+    <bean id="emp" class="com.igeek.ch13.annotation.entity.Employee"
+          p:name="张三" p:salary="5000.0"></bean>
+
+    <util:list id="strs">
+        <value>111</value>
+        <value>222</value>
+        <value>333</value>
+    </util:list>
+
+</beans>

@@ -1,23 +1,22 @@
-package com.igeek.ch07.scope;
+package com.igeek.ch12.factorybean;
 
 /**
  * @version 1.0
- * @Description TODO
+ * @Description 普通bean
  * @Author chenmin
- * @Date 2021/2/24 10:27
+ * @Date 2021/2/25 10:22
  */
 public class Car {
 
     private String label;
-    private double price;
+    private String color;
 
     public Car() {
-        System.out.println("Car()");
     }
 
-    public Car(String label, double price) {
+    public Car(String label, String color) {
         this.label = label;
-        this.price = price;
+        this.color = color;
     }
 
     /**
@@ -33,24 +32,26 @@ public class Car {
      * @param label
      */
     public void setLabel(String label) {
-        System.out.println("setLabel(String)");
         this.label = label;
     }
 
     /**
      * 获取
-     * @return price
+     * @return color
      */
-    public double getPrice() {
-        return price;
+    public String getColor() {
+        return color;
     }
 
     /**
      * 设置
-     * @param price
+     * @param color
      */
-    public void setPrice(double price) {
-        this.price = price;
+    public void setColor(String color) {
+        this.color = color;
     }
 
+    public String toString() {
+        return "Car{label = " + label + ", color = " + color + "}";
+    }
 }

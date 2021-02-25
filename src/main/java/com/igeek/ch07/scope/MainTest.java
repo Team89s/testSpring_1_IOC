@@ -13,6 +13,14 @@ public class MainTest {
 
     public static void main(String[] args) {
 
+        /**
+         * singleton 单例作用域 和 prototype 原型作用域
+         * 1.singleton ， 确保每次通过getBean获得的实例都是同一个
+         * prototype ， 每次通过getBean获得的实例都是不同的
+         *
+         * 2.singleton ， 随着创建容器，而实例化bean
+         * prototype ， 随着调用执行getBean()方法时，实例化bean
+         */
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring_xml_ch07_scope.xml");
 
         Car car1 = ac.getBean("car", Car.class);
